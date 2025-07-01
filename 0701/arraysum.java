@@ -11,6 +11,6 @@ public class arraysum {
     public static void main(String[] args) {
         int [] data = {01,20,30,40,50};
         int result = sum (data, data.length);
-        System.out.println("鄭烈總合為:"+result);
+        System.out.println("陣列總合為:"+result);
     }
 }
