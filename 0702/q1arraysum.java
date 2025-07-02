@@ -12,7 +12,7 @@ public class q1arraysum {
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
             sum += arr[i];
-            if (i > 0) ops++;
+            ops++;
         }
 
         System.out.println(sum);
