@@ -1,40 +1,35 @@
 import java.util.Scanner;
 
 public class q7permutation {
-    static int ops = 0;
+    static int n, ops = 0;
+    static boolean[] used;
+    static int[] perm;
 
-    public static void permute(int[] arr, int l, int r) {
-        if (l == r) {
-            for (int i = 0; i <= r; i++) {
-                System.out.print(arr[i] + (i < r ? " " : "\n"));
-            }
+    static void dfs(int d) {
+        if (d == n) {
+            for (int i = 0; i < n; i++)
+                System.out.print(perm[i] + (i < n - 1 ? " " : ""));
+            System.out.println();
             ops++;
-        } else {
-            for (int i = l; i <= r; i++) {
-                swap(arr, l, i);
-                permute(arr, l + 1, r);
-                swap(arr, l, i);
+            return;
+        }
+        for (int i = 1; i <= n; i++) {
+            if (!used[i]) {
+                used[i] = true;
+                perm[d] = i;
+                dfs(d + 1);
+                used[i] = false;
             }
         }
-    }
-
-    public static void swap(int[] arr, int i, int j) {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int[] arr = new int[n];
-
-        for (int i = 0; i < n; i++) {
-            arr[i] = i + 1;
-        }
-
-        ops = 0;
-        permute(arr, 0, n - 1);
+        n = sc.nextInt();
+        used = new boolean[n + 1];
+        perm = new int[n];
+        dfs(0);
         System.out.println(ops);
+        sc.close();
     }
 }
