@@ -17,7 +17,6 @@ public class Q2_NextTHSRDeparture {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // 讀 n，並檢查 1 ≤ n ≤ 80
         if (!sc.hasNextInt()) return;
         int n = sc.nextInt();
         sc.nextLine();
